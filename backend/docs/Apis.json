@@ -1,0 +1,327 @@
+{
+    "Autenticar Usuario con credenciales": {
+        "url": "/api/auth/login",
+        "method": "get",
+        "payload": {
+            "in": "body",
+            "values": {
+                "rut": "number",
+                "password": "string"
+            }
+        },
+        "response": {
+            "ind_is_admin": "1 | 0",
+            "ind_is_alumno": "1 | 0"
+        }
+    },
+    "Cerrar Sessión usuario": {
+        "url": "/api/auth/logout",
+        "method": "post",
+        "payload": {},
+        "response": {}
+    },
+    "Obtener data de usuario actual": {
+        "url": "/api/auth/current-user",
+        "method": "get",
+        "payload": {},
+        "header": "cookie-session",
+        "response": {
+            "currentUser": {
+                "rut": "number"
+            },
+            "roles": {
+                "ind_is_admin": "1 | 0",
+                "ind_is_alumno": "1 | 0"
+            }
+        }
+    },
+    "Recuperar alumnos con filtros opcionales": {
+        "url": "/api/alumnos",
+        "method": "get",
+        "payload": {
+            "in": "query",
+            "values": {
+                "alu_rut": "number",
+                "alu_nombres": "string",
+                "alu_apellido_paterno": "string",
+                "alu_apellido_materno": "string",
+                "nro_pagina": "number",
+                "registros_por_pagina": "number"
+            }
+        },
+        "response": {
+            "alumnos": [
+                {
+                    "total_registros": "number",
+                    "alu_rut": "number",
+                    "alu_dv": "string",
+                    "alu_nombres": "string",
+                    "alu_apellido_paterno": "string",
+                    "alu_apellido_materno": "string",
+                    "alu_fecha_nacimiento": "date",
+                    "alu_direccion": "string",
+                    "alu_telefono": "string",
+                    "alu_email": "string",
+                    "anio_ingreso_universidad": "number",
+                    "periodo_ingreso_universidad": "number"
+                }
+            ]
+        }
+    },
+    "Guardar / actualizar un alumno": {
+        "url": "/api/alumnos",
+        "descripcion": "Si el crr_rut_old es null, se crea un nuevo alumno, de lo contrario se actualiza el alumno con el rut indicado en el campo alu_rut_new",
+        "method": "post",
+        "payload": {
+            "in": "body",
+            "values": {
+                "alu_rut_new": "number",
+                "alu_rut_old": "string | null",
+                "alu_nombres": "string",
+                "alu_apellido_paterno": "string",
+                "alu_apellido_materno": "string",
+                "alu_email": "string",
+                "alu_celular": "number",
+                "anio_ingreso_universidad": "number",
+                "periodo_ingreso_universidad": "number"
+            }
+        }
+    },
+    "Eliminar un alumno": {
+        "url": "/api/alumnos/:alu_rut",
+        "method": "delete",
+        "payload": {
+            "in": "params",
+            "values": {
+                "alu_rut": "number"
+            },
+            "example": "/api/alumnos/12345678"
+        }
+    },
+    "Cargar primera vez mantenedor alumnos": {
+        "url": "/api/mantenedor-alumnos",
+        "method": "get",
+        "payload": {
+            "in": "query",
+            "values": {
+                "nro_pagina": "1",
+                "registros_por_pagina": "number"
+            }
+        },
+        "response": [
+            {
+                "total_registros": "number",
+                "alu_rut": "number",
+                "alu_dv": "string",
+                "alu_nombres": "string",
+                "alu_apellido_paterno": "string",
+                "alu_apellido_materno": "string",
+                "alu_email": "string",
+                "alu_celular": "string",
+                "anio_ingreso_universidad": "number",
+                "periodo_ingreso_universidad": "number"
+            }
+        ]
+    },
+    "Recuperar carreras con filtros opcionales": {
+        "url": "/api/carreras",
+        "method": "get",
+        "payload": {
+            "in": "query",
+            "values": {
+                "crr_codigo": "number",
+                "crr_nombre": "string",
+                "escc_codigo": "number",
+                "tprc_codigo": "number",
+                "nro_pagina": "number",
+                "registros_por_pagina": "number"
+            }
+        },
+        "response": [
+            {
+                "total_registros": "number",
+                "crr_codigo": "number",
+                "crr_nombre": "string",
+                "escc_codigo": "number",
+                "escc_nombre": "number",
+                "tprc_codigo": "number",
+                "tprc_nombre": "string"
+            }
+        ]
+    },
+    "Guardar / actualizar una carrera": {
+        "url": "/api/carreras",
+        "descripcion": "Si el crr_codigo_old es null, se crea una nueva carrera, de lo contrario se actualiza la carrera con el codigo indicado en el campo crr_codigo_new",
+        "method": "post",
+        "payload": {
+            "in": "body",
+            "values": {
+                "crr_codigo_new": "number",
+                "crr_codigo_old": "number | null",
+                "crr_nombre": "string",
+                "escc_codigo": "number",
+                "tprc_codigo": "number"
+            }
+        },
+        "response": {}
+    },
+    "Eliminar una carrera": {
+        "url": "/api/carreras/:crr_codigo",
+        "method": "delete",
+        "payload": {
+            "in": "params",
+            "values": {
+                "crr_codigo": "number"
+            },
+            "example": "/api/carreras/12345678"
+        }
+    },
+    "Cargar primera vez mantenedor carreras": {
+        "url": "/api/mantenedor-carreras",
+        "method": "get",
+        "payload": {
+            "in": "query",
+            "values": {
+                "nro_pagina": "1",
+                "registros_por_pagina": "number"
+            }
+        },
+        "response": {
+            "escuelas": [
+                {
+                    "escc_codigo": "number",
+                    "escc_nombre": "string"
+                }
+            ],
+            "programas": [
+                {
+                    "tprc_codigo": "number",
+                    "tprc_nombre": "string"
+                }
+            ],
+            "carreras": [
+                {
+                    "total_registros": "number",
+                    "crr_codigo": "number",
+                    "crr_nombre": "string",
+                    "escc_codigo": "number",
+                    "escc_nombre": "string",
+                    "tprc_codigo": "number",
+                    "tprc_nombre": "string"
+                }
+            ]
+        }
+    },
+    "Recuperar alumnos y sus carreras con filtros opcionales": {
+        "url": "/api/carreras/alumnos",
+        "method": "get",
+        "payload": {
+            "in": "query",
+            "values": {
+                "crr_codigo": "number",
+                "alu_rut": "number",
+                "crr_nombre": "string",
+                "escc_codigo": "number",
+                "tprc_codigo": "number",
+                "nro_pagina": "number",
+                "registros_por_pagina": "number"
+            }
+        },
+        "response": [
+            {
+                "total_registros": "number",
+                "alu_rut": "number",
+                "alu_dv": "string",
+                "alu_nombres": "string",
+                "alu_apellido_paterno": "string",
+                "alu_apellido_materno": "string",
+                "alu_email": "string",
+                "alu_celular": "string",
+                "anio_ingreso_universidad": "number",
+                "periodo_ingreso_universidad": "number",
+                "crr_codigo": "number",
+                "crr_nombre": "string",
+                "tprc_nombre": "string"
+            }
+        ]
+    },
+    "Guardar un alumno en una carrera": {
+        "url": "/api/carreras/alumnos",
+        "method": "post",
+        "payload": {
+            "in": "body",
+            "values": {
+                "alu_rut": "number",
+                "crr_codigo": "number"
+            }
+        },
+        "response": {}
+    },
+    "Eliminar un alumno de una carrera": {
+        "url": "/api/carreras/alumnos/:crr_codigo/:alu_rut",
+        "method": "delete",
+        "payload": {
+            "in": "params",
+            "values": {
+                "alu_rut": "number",
+                "crr_codigo": "number"
+            },
+            "example": "/api/carreras/alumnos/2203/18686716"
+        }
+    },
+    "Cargo primera vez mantenedor carreras/alumnos": {
+        "url": "/api/mantenedor-carrera-alumno/:crr_codigo",
+        "method": "get",
+        "payload": {
+            "descripcion": [
+                {
+                    "in": "params",
+                    "values": {
+                        "crr_codigo": "number"
+                    },
+                    "example": "/api/mantenedor-carrera-alumno/2203"
+                },
+                {
+                    "in": "query",
+                    "values": {
+                        "nro_pagina": "1",
+                        "registros_por_pagina": "number"
+                    }
+                }
+            ]
+        }, 
+        "response": [
+            {
+                "carrera": {
+                    "total_registros": 1,
+                    "crr_codigo": 12,
+                    "crr_nombre": "ASD",
+                    "escc_codigo": 1,
+                    "escc_nombre": "Escuela de Administración",
+                    "tprc_codigo": 2,
+                    "tprc_nombre": "Carrera Profesional"
+                },
+                "descripcion": "Identificación de la carrera"
+            },
+            {
+                "alumnos": [
+                    {
+                        "total_registros": "number",
+                        "alu_rut": "number",
+                        "alu_dv": "number",
+                        "alu_nombres": "string",
+                        "alu_apellido_paterno": "string",
+                        "alu_apellido_materno": "string",
+                        "alu_email": "string",
+                        "alu_celular": "string",
+                        "anio_ingreso_universidad": "number",
+                        "periodo_ingreso_universidad": "number",
+                        "crr_codigo": "number",
+                        "crr_nombre": "string",
+                        "tprc_nombre": "string"
+                    }
+                ]
+            }
+        ]
+    }
+}

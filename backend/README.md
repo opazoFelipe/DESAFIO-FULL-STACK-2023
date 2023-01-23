@@ -48,3 +48,21 @@ Es básicamente la url del cliente React, se obtiene del despliegue automático 
 ```bash
 npm start
 ```
+
+## Pruebas con Postman
+
+1. En postman, apartado "Collections", click en botón "import" y dejar caer el archivo "universidad.postman_collection.json" que se encuentra en el directorio /docs
+
+2. En postman, apartado Environments, crear un nuevo environment con un nombre cualquiera y dentro crear una variable llamada "host", con el valor igual al host y puerto donde está corriendo este backend, ejemplo: `http://localhost:4000`
+
+3. Luego volver al apartado collections y en la esquina superior derecha donde se encuentran el drop de environments seleccionar el environment creado.
+
+4. Para comenzar a realizar llamadas al backend primero se debe hacer la request llamada "auth/login" y luego se pueden hacer el resto de request. Modificar el body raw del request y agregar las credenciales: { `"rut": 18686716`, `"password": 123456` }
+
+Por defecto el setup de la base de datos tiene creado el perfil administrador para dicho rut.
+
+Notas:
+Para el resto de rutas, la variable alu_rut siempre debe ser la parte númerica del rut real.
+
+
+

@@ -1,0 +1,702 @@
+{
+	"info": {
+		"_postman_id": "2f535f39-046c-4e47-a562-2518931047bb",
+		"name": "universidad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rut\": \"18686716\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/auth/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth/logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rut\": \"asd\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/auth/logout",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/crear-carrera",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"crr_codigo_new\": 2206,\r\n    \"crr_codigo_old\": null,\r\n    \"tprc_codigo\": 1,\r\n    \"escc_codigo\": 1,\r\n    \"crr_nombre\": \"Ingenieria Civil en computacion e informatica\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/carreras",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"carreras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/listar-carreras",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alu_rut\": 34567891,\r\n    \"alu_dv\": \"2\",\r\n    \"alu_nombres\": \"lob top\",\r\n    \"alu_apellido_paterno\": \"oed\",\r\n    \"alu_apellido_materno\": \"eor\",\r\n    \"alu_email\": \"lob@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/carreras?crr_codigo=2206&nro_pagina=1&registros_por_pagina=1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"carreras"
+					],
+					"query": [
+						{
+							"key": "crr_codigo",
+							"value": "2206"
+						},
+						{
+							"key": "crr_nombre",
+							"value": "asd",
+							"disabled": true
+						},
+						{
+							"key": "escc_codigo",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "tprc_codigo",
+							"value": "23",
+							"disabled": true
+						},
+						{
+							"key": "nro_pagina",
+							"value": "1"
+						},
+						{
+							"key": "registros_por_pagina",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/eliminar-carrera",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/carreras/2206",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"carreras",
+						"2206"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/crear-alumno",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alu_rut_new\": 6598342,\r\n    \"alu_rut_old\": null,\r\n    \"alu_dv\": \"7\",\r\n    \"alu_nombres\": \"DE 123123 nuevo SP\",\r\n    \"alu_apellido_paterno\": \"de prueba nuevo sp\",\r\n    \"alu_apellido_materno\": \"de prueba nuevo sp\",\r\n    \"alu_email\": \"lob@test.com\",\r\n    \"alu_rut\": 123456,\r\n    \"anio_ingreso_universidad\": 2023,\r\n    \"periodo_ingreso_universidad\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/alumnos",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"alumnos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/listar-alumnos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alu_rut\": 12345678,\r\n    \"alu_dv\": \"9\",\r\n    \"alu_nombres\": \"test test\",\r\n    \"alu_apellido_paterno\": \"test\",\r\n    \"alu_apellido_materno\": \"test\",\r\n    \"alu_email\": \"test@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/alumnos?nro_pagina=1&registros_por_pagina=5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"alumnos"
+					],
+					"query": [
+						{
+							"key": "alu_rut",
+							"value": "18686716",
+							"description": "rut sin dv",
+							"disabled": true
+						},
+						{
+							"key": "alu_nombres",
+							"value": "felipe",
+							"disabled": true
+						},
+						{
+							"key": "alu_apellido_paterno",
+							"value": "opazo",
+							"disabled": true
+						},
+						{
+							"key": "alu_apellido_materno",
+							"value": "rivas",
+							"disabled": true
+						},
+						{
+							"key": "nro_pagina",
+							"value": "1"
+						},
+						{
+							"key": "registros_por_pagina",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/eliminar-alumno",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/alumnos/6598342",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"alumnos",
+						"6598342"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/inscribir-alumno-carrera",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alu_rut\": 1865125,\r\n    \"crr_codigo\": 2206\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/carreras/alumnos",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"carreras",
+						"alumnos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "usuario/listar-servicios",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/usuario/servicios",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"usuario",
+						"servicios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/cargar-mantenedor-carreras",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alu_rut\": 34567891,\r\n    \"alu_dv\": \"2\",\r\n    \"alu_nombres\": \"lob top\",\r\n    \"alu_apellido_paterno\": \"oed\",\r\n    \"alu_apellido_materno\": \"eor\",\r\n    \"alu_email\": \"lob@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/mantenedor-carreras?nro_pagina=1&registros_por_pagina=5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"mantenedor-carreras"
+					],
+					"query": [
+						{
+							"key": "nro_pagina",
+							"value": "1"
+						},
+						{
+							"key": "registros_por_pagina",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/cargar-mantenedor-carrera-alumnos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alu_rut\": 34567891,\r\n    \"alu_dv\": \"2\",\r\n    \"alu_nombres\": \"lob top\",\r\n    \"alu_apellido_paterno\": \"oed\",\r\n    \"alu_apellido_materno\": \"eor\",\r\n    \"alu_email\": \"lob@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/mantenedor-carrera-alumno/12?nro_pagina=1&registros_por_pagina=5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"mantenedor-carrera-alumno",
+						"12"
+					],
+					"query": [
+						{
+							"key": "nro_pagina",
+							"value": "1"
+						},
+						{
+							"key": "registros_por_pagina",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth/current-user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/auth/current-user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"current-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/cargar-consulta-carrera-alumno",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alu_rut\": 34567891,\r\n    \"alu_dv\": \"2\",\r\n    \"alu_nombres\": \"lob top\",\r\n    \"alu_apellido_paterno\": \"oed\",\r\n    \"alu_apellido_materno\": \"eor\",\r\n    \"alu_email\": \"lob@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/consulta-carrera-alumno",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"consulta-carrera-alumno"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/listar-alumno-carrera",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alu_rut\": 34567891,\r\n    \"alu_dv\": \"2\",\r\n    \"alu_nombres\": \"lob top\",\r\n    \"alu_apellido_paterno\": \"oed\",\r\n    \"alu_apellido_materno\": \"eor\",\r\n    \"alu_email\": \"lob@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/carreras/alumnos?nro_pagina=1&registros_por_pagina=5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"carreras",
+						"alumnos"
+					],
+					"query": [
+						{
+							"key": "crr_codigo",
+							"value": "12",
+							"disabled": true
+						},
+						{
+							"key": "alu_rut",
+							"value": "18686716",
+							"description": "rut sin dv",
+							"disabled": true
+						},
+						{
+							"key": "crr_nombre",
+							"value": "asd",
+							"disabled": true
+						},
+						{
+							"key": "escc_codigo",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "tprc_codigo",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "nro_pagina",
+							"value": "1"
+						},
+						{
+							"key": "registros_por_pagina",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/cargar-mantenedor-alumnos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alu_rut\": 34567891,\r\n    \"alu_dv\": \"2\",\r\n    \"alu_nombres\": \"lob top\",\r\n    \"alu_apellido_paterno\": \"oed\",\r\n    \"alu_apellido_materno\": \"eor\",\r\n    \"alu_email\": \"lob@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/mantenedor-alumnos",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"mantenedor-alumnos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "identifica usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/usuario/roles",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"usuario",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin/eliminar-alumno-carrera",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alu_rut\": 1865125,\r\n    \"crr_codigo\": 2206\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/carreras/alumnos/12/18686716",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"carreras",
+						"alumnos",
+						"12",
+						"18686716"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
