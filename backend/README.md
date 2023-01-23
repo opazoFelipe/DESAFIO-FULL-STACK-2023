@@ -16,7 +16,8 @@ Los campos obligatorios son:
 `NODE_ENV`=
 
 
-2.2 Host clientes, Para desarrollo (Es básicamente la url del cliente en react en este formato (por ejemplo))
+2.2 Host clientes, Para desarrollo. 
+Es básicamente la url del cliente React, se obtiene del despliegue automático cuando se ejecuta su comando `npm start`. Por ejemplo el formato sería como el siguiente: 
 
 `CLIENT_HOST`=http://localhost:3000 
 
