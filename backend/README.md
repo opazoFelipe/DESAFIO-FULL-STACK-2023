@@ -42,6 +42,8 @@ Es básicamente la url del cliente React, se obtiene del despliegue automático 
 
 ### Para que las operaciones CRUD se puedan llevar a cabo se requiere, en una base de datos SQL Server, la más reciente, copiar, pegar y ejecutar todos los archivos sql que se encuentran en el directorio sql-setup partiendo por el archivo setup.sql
 
+### El primer usuario, de perfil administrador, va insertado en dichos archivos con la clave encriptada, el rut es: 18.686.716-5 y la contraseña es 123456
+
 3. Luego el comando:
 ```bash
 npm start
