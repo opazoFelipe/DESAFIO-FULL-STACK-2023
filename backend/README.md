@@ -40,7 +40,7 @@ Es básicamente la url del cliente React, se obtiene del despliegue automático 
 `DB_PASSWORD`=
 
 
-### Para que las operaciones CRUD se puedan llevar a cabo se requiere En una base de datos SQL Server, la más reciente, copiar, pegar y ejecutar todos los archivos sql que se encuentran en sql-setup partiendo por el archivo setup.sql
+### Para que las operaciones CRUD se puedan llevar a cabo se requiere, en una base de datos SQL Server, la más reciente, copiar, pegar y ejecutar todos los archivos sql que se encuentran en el directorio sql-setup partiendo por el archivo setup.sql
 
 3. Luego el comando:
 ```bash
