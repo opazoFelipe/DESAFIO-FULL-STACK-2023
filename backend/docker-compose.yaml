@@ -1,0 +1,20 @@
+# version: '3.9'
+
+# services:
+#   mssql:
+#     image: mcr.microsoft.com/mssql/server:2019-latest
+#     ports:
+#       - 10433:1433
+#     volumes:
+#       - ~/apps/mssql/data:/var/lib/mssqlql/data
+#     environment:
+#       - ACCEPT_EULA=Y
+#       - SA_PASSWORD=mssql1Ipw
+
+version: '3'
+
+services:
+  db:
+    build: ./
+    ports:
+        - 8000:8000
