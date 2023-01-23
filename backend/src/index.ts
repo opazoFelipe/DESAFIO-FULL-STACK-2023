@@ -24,7 +24,7 @@ const start = async () => {
         }
     } else {
         if (!process.env.CLIENT_HOST) {
-            throw new Error('CLIENT_HOST_1 must be defined');
+            throw new Error('CLIENT_HOST must be defined');
         }
     }
 
