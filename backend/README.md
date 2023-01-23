@@ -30,6 +30,10 @@ DB_PASSWORD=
 # Secret JWT, al menos de unos 32 caracteres variados
 JWT_SECRET=
 
+# Para que las operaciones CRUD se puedan llevar a cabo se requiere
+# En una base de datos SQL Server, la más reciente, copiar, pegar y ejecutar todos los archivos sql
+# que se encuentran en sql-setup partiendo por el archivo setup.sql
+
 3. Luego el comando:
 ```bash
 npm start
