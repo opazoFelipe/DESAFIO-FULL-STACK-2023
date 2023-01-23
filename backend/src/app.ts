@@ -4,11 +4,6 @@ import cors from 'cors';
 import morgan from 'morgan';
 import cookieSession from 'cookie-session';
 
-/* >> Documentacion */
-import swaggerUI from "swagger-ui-express";
-import docs from './docs';
-/* << Documentacion */
-
 import { environment } from './environment';
 import { errorHandler, NotFoundError, currentUser, requireAuth } from './common';
 
@@ -29,7 +24,7 @@ app.use(cookieSession({
     keys: [environment.COOKIE_SECRET_1!, environment.COOKIE_SECRET_2!],
     httpOnly: false,
 
-    secure: false // este es el que hay dice especificamente si se manda a la cookie al cliente en modo dev (para dev = false)
+    secure: false // este es el que dice especificamente si se manda a la cookie al cliente en modo dev (para dev = false)
 
     // signed: environment.COOKIE_SIGNED, // La cookie se firma para que no se pueda modificar
     // keys: [environment.COOKIE_SECRET_1!, environment.COOKIE_SECRET_2!], // Las claves para firmar la cookie
@@ -39,11 +34,6 @@ app.use(cookieSession({
 
 app.use(morgan(environment.MORGAN));
 app.use(json());
-
-// La documentación de la API no se libera en producción
-if (environment.SHOW_SWAGGER) {
-    app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(docs));
-}
 
 // Identifica al usuario que esta haciendo la peticion
 app.use(currentUser);

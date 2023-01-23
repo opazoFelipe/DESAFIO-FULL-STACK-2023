@@ -21,7 +21,6 @@
     "morgan": "^1.10.0",
     "mssql": "^9.1.0",
     "remove": "^0.1.5",
-    "swagger-ui-express": "^4.6.0",
     "ts-node-dev": "^2.0.0"
   },
   "devDependencies": {
